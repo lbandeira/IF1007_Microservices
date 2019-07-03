@@ -10,7 +10,7 @@
 
 
       <div class="container" >
-        <a class="links" id="paracadastro"></a>
+        
         <a class="links" id="paralogin"></a>
         
         <div id="logo">
@@ -48,49 +48,11 @@
                  
                 <p class="link">
                   Ainda não tem conta?
-                  <a href="#paracadastro">Cadastre-se</a>
+                  <a href="signup">Cadastre-se</a>
                 </p>
               </form>
             </div>
        
-            <!--FORMULÁRIO DE CADASTRO-->
-            <div id="cadastro"> 
-  
-              {% if error_message %}
-                  <p><strong>{{ error_message }}</strong></p>
-              {% endif %}
-  
-                      <form method="post" action=""> 
-                              <h1>Junte-se ao time!</h1> 
-                               
-                              {% csrf_token %}
-                              <p> 
-                                  <label for="username">Seu e-mail</label>
-                                  <input id="username" name="username" required="required" type="text" placeholder="usuario"/> 
-                              </p>
-                               
-                              <p> 
-                                <label for="email_cad">Seu e-mail</label>
-                                <input id="email_cad" name="email_cad" required="required" type="email" placeholder="contato@htmlecsspro.com"/> 
-                              </p>
-                               
-                             
-                              <p> 
-                                  <label for="password">Sua senha</label>
-                                  <input id="password" name="password" required="required" type="password" placeholder="ex. 1234"/>
-                              </p>
-                               
-                              <p> 
-                                <input type="submit" value="Cadastrar"/> 
-                              </p>
-                               
-                              <p class="link">  
-                                    Já tem conta?
-                                    <a href="#paralogin"> Ir para Login </a>
-                                </p>
-                            </form>
-                
-            </div>
         </div>
       </div>  
     </body>

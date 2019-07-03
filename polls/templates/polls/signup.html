@@ -1,0 +1,66 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+      <link rel="stylesheet" href="{% static 'css/login_verde.css' %}">
+    </head>
+    <body>
+
+
+      <div class="container" >
+        <a class="links" id="paracadastro"></a>
+        
+        <div id="logo">
+            <p>
+              <center>
+                  <img src= "{% static 'images/est.png' %}" alt= "dancing dog" height="200" width="200">
+              </center>
+                    
+            </p>
+        </div>
+        <div class="content">      
+            
+            <!--FORMULÁRIO DE CADASTRO-->
+            <div id="cadastro"> 
+  
+              {% if error_message %}
+                  <p><strong>{{ error_message }}</strong></p>
+              {% endif %}
+  
+                      <form method="post" action="{% url 'signup' %}"> 
+                              <h1>Junte-se ao time!</h1> 
+
+                              {% csrf_token %}
+                              <p> 
+                                  <label for="username">Usuário</label>
+                                  <input id="username" name="username" required="required" type="text" placeholder="usuario"/> 
+                              </p>
+                               
+                              <p> 
+                                <label for="email">E-mail</label>
+                                <input id="email" name="email" required="required" type="email" placeholder="contato@htmlecsspro.com"/> 
+                              </p>
+                               
+                             
+                              <p> 
+                                  <label for="password">Senha</label>
+                                  <input id="password" name="password" required="required" type="password" placeholder="ex. 1234"/>
+                              </p>
+                               
+                              <p> 
+                                <input type="submit" value="Cadastrar"/> 
+                              </p>
+                               
+                              <p class="link">  
+                                    Já tem conta?
+                                    <a href="{% url 'login' %}"> Ir para Login </a>
+                                </p>
+                        </form>
+                
+            </div>
+        </div>
+      </div>  
+    </body>
+    </html>

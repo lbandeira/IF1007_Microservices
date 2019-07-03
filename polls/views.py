@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from django.contrib.auth import authenticate, login
+from django.contrib.auth.forms import UserCreationForm
+from .forms import UserForm
 
 # Create your views here.
 def cadastro(request):
@@ -17,8 +19,23 @@ def login(request):
     if user is not None:
         #login(request, user)
         # Redirect to a success page.
-        return render(request, 'polls/test.html', {})
+        return render(request, 'polls/login.html', {})
     else:
         # Return an 'invalid login' error message.
-        return render(request, 'polls/login.html', {})
+        return render(request, 'polls/test.html', {})
+
+def signup(request):
+    if request.method == 'POST':
+        form = UserForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data.get('username')
+            raw_password = form.cleaned_data.get('password')
+            user = authenticate(username=username, password=raw_password)
+            #login(request, user)
+            return render(request, 'polls/login.html', {})
+            
+    else:
+        form = UserForm()
+    return render(request, 'polls/signup.html', {})
         

@@ -1,5 +1,4 @@
 from django.contrib.auth.forms import User
-from .models import usuario
 from django import forms
 
 class UserForm(forms.ModelForm):
