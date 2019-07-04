@@ -10,3 +10,12 @@ class usuario(models.Model):
 
 	def __str__(self):
 		return self.nome_usuario
+
+class equipamento(models.Model):
+   	
+	categoria_equipamento = models.CharField(max_length=254)
+	nome_equipamento = models.CharField(max_length=240)	
+	quantidade_equipamento = models.PositiveIntegerField()
+
+	def __str__(self):
+		return self.nome_equipamento
